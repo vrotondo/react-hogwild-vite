@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import App from "../components/App";
+import App from "../App";
 import hogs from "../porkers_data";
 
 describe("Hog App", () => {
@@ -43,7 +43,7 @@ describe("Hog App", () => {
     render(<App />);
 
     const sortBySelect = screen.getByLabelText("Sort by:");
-    
+
     fireEvent.change(sortBySelect, { target: { value: "name" } });
 
     const sortedByName = [...hogs].sort((a, b) => a.name.localeCompare(b.name));
@@ -64,7 +64,7 @@ describe("Hog App", () => {
     const sortBySelect = screen.getByLabelText("Sort by:");
     fireEvent.change(sortBySelect, { target: { value: "name" } });
 
-    const hideButtons = screen.getAllByRole("button", {name: 'Hide Me'});
+    const hideButtons = screen.getAllByRole("button", { name: 'Hide Me' });
     fireEvent.click(hideButtons[0]);
 
     const sortedHogsByName = [...hogs].sort((a, b) => a.name.localeCompare(b.name));
@@ -92,10 +92,10 @@ describe("Hog App", () => {
   it("renders hog tiles using Semantic Cards", () => {
     render(<App />);
     const cards = screen.getAllByLabelText(/hog card/i)
-    
+
     cards.forEach((card) => {
-        expect(card).toHaveClass("ui");
-        expect(card).toHaveClass("card");
+      expect(card).toHaveClass("ui");
+      expect(card).toHaveClass("card");
     });
 
     expect(cards.length).toBe(hogs.length);
