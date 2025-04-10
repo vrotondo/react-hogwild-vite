@@ -18,7 +18,7 @@ const HogCard = ({ hog }) => {
                         {/* Render details as single text nodes */}
                         <p>{`Specialty: ${hog.specialty}`}</p>
                         <p>{`Weight: ${hog.weight}`}</p>
-                        <p>{hog.greased ? "Greased" : "Nongreased"}</p>
+                        <p>{`Greased: ${hog.greased ? "Yes" : "No"}`}</p>
                         <p>{`Highest Medal Achieved: ${hog["highest medal achieved"]}`}</p>
                     </div>
                 )}
